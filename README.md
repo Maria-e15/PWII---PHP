@@ -14,10 +14,12 @@ password_hash()
 
 Exemplo: 
 
-``` $senha = "123456"; 
+``` 
+$senha = "123456"; 
 $hash = password_hash($senha, PASSWORD_DEFAULT); 
  
-echo $hash; ```
+echo $hash; 
+```
 
  
 
@@ -27,9 +29,11 @@ Serve para verificar se a senha digitada corresponde ao hash armazenado no banco
 
 Exemplo: 
 
-``` if (password_verify("123456", $hash)) { 
+``` 
+if (password_verify("123456", $hash)) { 
     echo "Senha correta"; 
-} ```
+} 
+```
 
  
 
@@ -39,7 +43,8 @@ openssl_encrypt()
 
 Exemplo: 
 
-```$texto = "Mensagem secreta"; 
+```
+$texto = "Mensagem secreta"; 
  
 $criptografado = openssl_encrypt( 
     $texto, 
@@ -47,7 +52,8 @@ $criptografado = openssl_encrypt(
     "minhachave" 
 ); 
  
-echo $criptografado; ```
+echo $criptografado; 
+```
 
  
 
@@ -57,13 +63,15 @@ Realiza o processo inverso, recuperando o texto original.
 
 Exemplo:
 
-``` $textoOriginal = openssl_decrypt( 
+``` 
+$textoOriginal = openssl_decrypt( 
     $criptografado, 
     "AES-256-CBC", 
     "minhachave" 
 ); 
  
-echo $textoOriginal; ```
+echo $textoOriginal; 
+```
 
  
 
@@ -79,11 +87,13 @@ Senha: 123456
 
 Seria errado salvar a senha diretamente no banco, pois se alguém invadi-lo, terá acesso a todas as senhas. O correto é gerar um hash: 
 
-``` $senha = "123456"; 
+``` 
+$senha = "123456"; 
  
 $hash = password_hash($senha, PASSWORD_DEFAULT); 
  
-echo $hash; ```
+echo $hash; 
+```
 
 O banco salva: 
 
@@ -103,13 +113,15 @@ Senha: 123456
 
 O PHP pega a senha digitada e compara com o hash salvo: 
 
-``` $senhaDigitada = "123456"; 
+``` 
+$senhaDigitada = "123456"; 
  
 if(password_verify($senhaDigitada, $hash)){ 
     echo "Login realizado!"; 
 }else{ 
     echo "Senha incorreta!"; 
-} ```
+} 
+```
 
 Se a senha gerar o mesmo resultado, o acesso é liberado. 
 
@@ -124,7 +136,8 @@ CPF: 123.456.789-00
 
 O CPF precisa ser protegido, mas o sistema ainda precisa conseguir mostrar o CPF quando autorizado. Então, nesse caso se usa: 
 
-``` $cpf = "123.456.789-00"; 
+``` 
+$cpf = "123.456.789-00"; 
  
 $cpfCriptografado = openssl_encrypt( 
     $cpf, 
@@ -132,7 +145,8 @@ $cpfCriptografado = openssl_encrypt(
     "minha-chave-secreta" 
 ); 
  
-echo $cpfCriptografado; ```
+echo $cpfCriptografado; 
+```
 
 O banco salva algo parecido: 
 
@@ -154,7 +168,8 @@ $cpfOriginal = openssl_decrypt(
     "minha-chave-secreta");
      
  
-echo $cpfOriginal; ```
+echo $cpfOriginal; 
+```
 
 Resultado: 
 
