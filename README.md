@@ -8,7 +8,7 @@ O seu uso possui muitas vantagens, como evitar que senhas sejam armazenadas em t
 
 ## Principais funções de criptografia do PHP: 
 
-password_hash() 
+### password_hash() 
 
 É a função recomendada para armazenar senhas de forma segura. Ela cria um hash (código) da senha utilizando algoritmos modernos, como o BCrypt ou Argon2. 
 
@@ -21,9 +21,7 @@ $hash = password_hash($senha, PASSWORD_DEFAULT);
 echo $hash; 
 ```
 
- 
-
-password_verify() 
+### password_verify() 
 
 Serve para verificar se a senha digitada corresponde ao hash armazenado no banco de dados. 
 
@@ -37,7 +35,7 @@ if (password_verify("123456", $hash)) {
 
  
 
-openssl_encrypt() 
+### openssl_encrypt() 
 
 É utilizada para criptografar informações que posteriormente precisarão ser recuperadas, como documentos, tokens ou dados confidenciais. 
 
@@ -57,7 +55,7 @@ echo $criptografado;
 
  
 
-openssl_decrypt() 
+### openssl_decrypt() 
 
 Realiza o processo inverso, recuperando o texto original. 
 
@@ -75,7 +73,7 @@ echo $textoOriginal;
 
  
 
-## EXEMPLO DE QUANDO USAR CADA UM: 
+## Exemplo de quando usar cada um: 
 
 Cadastro de usuário - password_hash(): 
 
@@ -176,7 +174,7 @@ Resultado:
 123.456.789-00 
 
 
-### Fontes:
+## Fontes:
 
 https://melhorweb.com.br/criptografia-em-php-nos-formatos-md5-crypt-e-base64/
 
